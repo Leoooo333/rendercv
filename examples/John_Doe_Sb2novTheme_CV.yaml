@@ -105,7 +105,7 @@ cv:
           Builder
 design:
   theme: sb2nov
-  font: Latin Modern Serif
+  font: Latin Modern Sans Serif
   font_size: 10pt
   page_size: letterpaper
   color: '#004f90'

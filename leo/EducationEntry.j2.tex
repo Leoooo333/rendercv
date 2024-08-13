@@ -1,0 +1,30 @@
+((* if not is_first_entry *))
+\vspace{1pt}
+((* endif *))
+
+((* if entry.date_string *))
+\begin{twocolentry}{
+    {\fontsize{9pt}{1pt}\selectfont \textit{<<entry.date_string>>}}
+}
+((* else *))
+\begin{onecolentry}
+((* endif *))
+    \textrm{\textbf{<<entry.institution>>}, \textit{\underline{<<entry.degree>>\hspace{0.2em}<<entry.area>>}}((* if entry.gpa *));\textit{\hspace{0.5em}GPA:\hspace{0.2em}<<entry.gpa>>}((* endif *))((* if entry.location *)) -- <<entry.location>>((* endif *))}
+((* if entry.date_string *))
+\end{twocolentry}
+((* else *))
+\end{onecolentry}
+((* endif *))
+
+((* for item in entry.highlights *))
+    ((* if loop.first *))
+\vspace{<<design.margins.highlights_area.top>>}
+\begin{onecolentry}
+    \begin{highlights}
+    ((* endif *))
+        \item <<item>>
+    ((* if loop.last *))
+    \end{highlights}
+\end{onecolentry}
+    ((* endif *))
+((* endfor *))

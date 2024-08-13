@@ -436,6 +436,17 @@ class CurriculumVitae(RenderCVBaseModelWithExtraKeys):
                 }
             )
 
+        if self.website is not None:
+            website_placeholder = computers.make_a_url_clean(str(self.website))
+            connections.append(
+                {
+                    "latex_icon": "\\faLink",
+                    "url": str(self.website),
+                    "clean_url": website_placeholder,
+                    "placeholder": website_placeholder,
+                }
+            )
+            
         if self.email is not None:
             connections.append(
                 {
@@ -454,17 +465,6 @@ class CurriculumVitae(RenderCVBaseModelWithExtraKeys):
                     "url": self.phone,
                     "clean_url": phone_placeholder,
                     "placeholder": phone_placeholder,
-                }
-            )
-
-        if self.website is not None:
-            website_placeholder = computers.make_a_url_clean(str(self.website))
-            connections.append(
-                {
-                    "latex_icon": "\\faLink",
-                    "url": str(self.website),
-                    "clean_url": website_placeholder,
-                    "placeholder": website_placeholder,
                 }
             )
 
